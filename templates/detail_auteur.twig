@@ -1,0 +1,12 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Détail d'un auteur</h1>
+	<h2>
+		{{ auteur.prenom }}
+		{{ auteur.nom }}
+	</h2>
+	<p class="backlink">
+		<a href="liste_auteurs.php">Retour</a>
+	</p>
+{% endblock %}

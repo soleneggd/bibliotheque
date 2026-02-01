@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Bibliothèque</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<a href="index.php">Accueil</a>
+					</li>
+					<li>
+						<a href="./">Livres</a>
+					</li>
+					{# Lien vers la page Livres à modifier #}
+					<li>
+						<a href="liste_auteurs.php">Auteurs</a>
+					</li>
+					<li>
+						<a href="./">Éditeurs</a>
+					</li>
+					{# Lien vers la page Éditeurs à modifier #}
+				</ul>
+			</nav>
+		</header>
+		<main class="container">
+			{% block main %}
+				<h1>Accueil de ma bibliothèque</h1>
+			{% endblock %}
+		</main>
+		<footer>
+			<p>Bibliothèque en ligne - par moi-même &copy;</p>
+		</footer>
+	</body>
+</html>
