@@ -11,7 +11,7 @@ $pdo = new PDO('mysql:host=' . SERVER . ';dbname=' . BDD . ';charset=utf8', USER
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
 // Récupération des données : listes des auteurs
-$sql = 'select * from auteurs';
+$sql = 'SELECT * FROM auteurs';
 $query = $pdo->prepare($sql);
 $query->execute();
 $tableau_auteurs = $query->fetchAll(PDO::FETCH_ASSOC);
