@@ -28,6 +28,10 @@ footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+p {
+  margin-bottom: 10px;
+}
+
 main {
   min-height: 400px;
 }
