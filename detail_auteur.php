@@ -4,8 +4,7 @@ include('include/twig.php');
 $twig = init_twig();
 
 // Récupération de la variable $id sur l'URL et conversion en entier
-if (isset($_GET['id'])) $id = $_GET['id']; else $id = 0;
-$id = intval($id);
+$id = (int)($_GET['id'] ?? 0);
 
 // Récupère les identifiants dans un fichier de configuration
 include('include/config.php');
@@ -23,5 +22,5 @@ $auteur_unique = $query->fetch(PDO::FETCH_ASSOC);
 
 // Lancement du moteur Twig avec les données
 echo $twig->render('detail_auteur.twig', [
-	'auteur' => $auteur_unique
+  'auteur' => $auteur_unique
 ]);
