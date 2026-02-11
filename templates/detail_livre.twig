@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Détail d'un livre</h1>
+	<h2>{{ livre.titre }}</h2>
+	<p class="resume">{{ livre.resume }}</p>
+	<p>Éditeur :
+		{{ livre.editeur }}</p>
+	<p>Prix :
+		{{ livre.prix }}€</p>
+	<h3>Auteur(s) :</h3>
+	{% for auteur in auteurs %}
+		<div class="auteur">
+			<a href="detail_auteur.php?id={{ auteur.id }}">
+				{{ auteur.nom }}
+				{{ auteur.prenom }}
+			</a>
+		</div>
+	{% endfor %}
+	<p class="backlink">
+		<a href="delete_livre.php?isbn={{ livre.isbn }}">
+			Supprimer
+		</a>
+		<a href="liste_livres.php">Retour</a>
+	</p>
+{% endblock %}

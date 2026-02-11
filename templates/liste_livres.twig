@@ -1,0 +1,42 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Liste des livres</h1>
+	<div class="grid">
+		{% for livre in tableau_livres %}
+			<a class="card" href="detail_livre.php?isbn={{ livre.isbn }}">
+				{{ livre.titre }}
+			</a>
+		{% endfor %}
+	</div>
+	<form method="post" action="liste_livres.php">
+		<h2>Ajouter un livre</h2>
+		<div>
+			<label for="isbn">ISBN :</label>
+			<input type="number" id="isbn" name="isbn">
+		</div>
+		<div>
+			<label for="titre">Titre :</label>
+			<input type="text" id="titre" name="titre" size="50">
+		</div>
+		<div>
+			<label for="resume">Résumé :</label>
+			<textarea name="resume" id="resume" rows="5" cols="50"></textarea>
+		</div>
+		<div>
+			<label for="prix">Prix :</label>
+			<input type="number" id="prix" name="prix" step="0.01">
+		</div>
+		<div>
+			<label for="editeur">Éditeur :</label>
+			<select name="editeur" id="editeur">
+				{% for editeur in tableau_editeurs %}
+					<option value="{{ editeur.id }}">{{ editeur.nom }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div>
+			<button type="submit">Ajouter</button>
+		</div>
+	</form>
+{% endblock %}
