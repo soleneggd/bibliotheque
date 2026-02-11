@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Détail d'un éditeur</h1>
+	<h2>
+		{{ editeur.nom }}
+	</h2>
+	<p>Adresse :
+		{{ editeur.adresse }}</p>
+	<p class="backlink">
+		<a href="liste_editeurs.php">Retour</a>
+	</p>
+{% endblock %}

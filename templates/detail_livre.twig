@@ -1,0 +1,14 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Détail d'un livre</h1>
+	<h2>{{ livre.titre }}</h2>
+	<p class="resume">{{ livre.resume }}</p>
+	<p>Éditeur :
+		{{ livre.editeur }}</p>
+	<p>Prix :
+		{{ livre.prix }}€</p>
+	<p class="backlink">
+		<a href="liste_livres.php">Retour</a>
+	</p>
+{% endblock %}

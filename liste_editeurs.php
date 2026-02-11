@@ -10,13 +10,13 @@ include('include/config.php');
 $pdo = new PDO('mysql:host=' . SERVER . ';dbname=' . BDD . ';charset=utf8', USER, PASSWORD);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-// Récupération des données : listes des auteurs
-$sql = 'SELECT * FROM auteurs';
+// Récupération des données : listes des éditeurs
+$sql = 'SELECT * FROM editeurs';
 $query = $pdo->prepare($sql);
 $query->execute();
-$tableau_auteurs = $query->fetchAll(PDO::FETCH_ASSOC);
+$tableau_editeurs = $query->fetchAll(PDO::FETCH_ASSOC);
 
 // Lancement du moteur Twig avec les données
-echo $twig->render('liste_auteurs.twig', [
-  'tableau_auteurs' => $tableau_auteurs
+echo $twig->render('liste_editeurs.twig', [
+  'tableau_editeurs' => $tableau_editeurs
 ]);

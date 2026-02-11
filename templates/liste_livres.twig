@@ -1,0 +1,12 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Liste des livres</h1>
+	<div class="grid">
+		{% for livre in tableau_livres %}
+			<a class="card" href="detail_livre.php?isbn={{ livre.isbn }}">
+				{{ livre.titre }}
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}
