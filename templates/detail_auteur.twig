@@ -8,13 +8,17 @@
 	</h2>
 	<h3>Livres de cet auteur :
 	</h3>
-	<div class="grid">
-		{% for livre in livres %}
-			<a class="card" href="detail_livre.php?isbn={{ livre.isbn }}">
-				{{ livre.titre }}
-			</a>
-		{% endfor %}
-	</div>
+	{% if livres|length == 0 %}
+		<p>Aucun</p>
+	{% else %}
+		<div class="grid">
+			{% for livre in livres %}
+				<a class="card" href="detail_livre.php?isbn={{ livre.isbn }}">
+					{{ livre.titre }}
+				</a>
+			{% endfor %}
+		</div>
+	{% endif %}
 	<p class="backlink">
 		<a href="liste_auteurs.php">Retour</a>
 	</p>

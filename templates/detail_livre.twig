@@ -9,14 +9,18 @@
 	<p>Prix :
 		{{ livre.prix }}€</p>
 	<h3>Auteur(s) :</h3>
-	{% for auteur in auteurs %}
-		<div class="auteur">
-			<a href="detail_auteur.php?id={{ auteur.id }}">
-				{{ auteur.nom }}
-				{{ auteur.prenom }}
-			</a>
-		</div>
-	{% endfor %}
+	{% if auteurs|length == 0 %}
+		<p>Aucun</p>
+	{% else %}
+		{% for auteur in auteurs %}
+			<div class="auteur">
+				<a href="detail_auteur.php?id={{ auteur.id }}">
+					{{ auteur.nom }}
+					{{ auteur.prenom }}
+				</a>
+			</div>
+		{% endfor %}
+	{% endif %}
 	<p class="backlink">
 		<a href="liste_livres.php">Retour</a>
 	</p>

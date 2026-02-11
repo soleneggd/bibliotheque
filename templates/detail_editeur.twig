@@ -7,17 +7,19 @@
 	</h2>
 	<p>Adresse :
 		{{ editeur.adresse }}</p>
-
-	<div></div>
 	<h3>Livres de cet éditeur :
 	</h3>
-	<div class="grid">
-		{% for livre in livres %}
-			<a class="card" href="detail_livre.php?isbn={{ livre.isbn }}">
-				{{ livre.titre }}
-			</a>
-		{% endfor %}
-	</div>
+	{% if livres|length == 0 %}
+		<p>Aucun</p>
+	{% else %}
+		<div class="grid">
+			{% for livre in livres %}
+				<a class="card" href="detail_livre.php?isbn={{ livre.isbn }}">
+					{{ livre.titre }}
+				</a>
+			{% endfor %}
+		</div>
+	{% endif %}
 	<p class="backlink">
 		<a href="liste_editeurs.php">Retour</a>
 	</p>
