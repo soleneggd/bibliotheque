@@ -24,8 +24,17 @@ footer {
   width: 100%;
   background-color: white;
   padding: 20px 120px;
+  padding: 20px 120px;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  min-height: 400px;
+
+  p {
+    margin-bottom: 10px;
+  }
 }
 
 main {
