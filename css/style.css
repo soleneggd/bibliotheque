@@ -36,10 +36,6 @@ main {
   }
 }
 
-main {
-  min-height: 400px;
-}
-
 nav ul {
   display: flex;
   flex-flow: row wrap;
