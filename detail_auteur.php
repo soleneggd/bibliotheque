@@ -5,7 +5,6 @@ $twig = init_twig();
 
 // Récupération de la variable $id sur l'URL et conversion en entier
 $id = (int)($_GET['id'] ?? 0);
-$id = (int)($_GET['id'] ?? 0);
 
 // Récupère les identifiants dans un fichier de configuration
 include('include/config.php');
