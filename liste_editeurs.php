@@ -12,24 +12,24 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
 // Récupération des données POST
 $nom = htmlspecialchars(strip_tags($_POST['nom'] ?? ''));
-$prenom = htmlspecialchars(strip_tags($_POST['prenom'] ?? ''));
+$adresse = htmlspecialchars(strip_tags($_POST['adresse'] ?? ''));
 
 // Insertion des données dans la base de données
-if (!empty($nom) && !empty($prenom)) {
-  $sql_insert = 'INSERT INTO auteurs (nom, prenom) VALUES (:nom, :prenom)';
+if (!empty($nom) && !empty($adresse)) {
+  $sql_insert = 'INSERT INTO editeurs (nom, adresse) VALUES (:nom, :adresse)';
   $query_insert = $pdo->prepare($sql_insert);
   $query_insert->bindParam(':nom', $nom);
-  $query_insert->bindParam(':prenom', $prenom);
+  $query_insert->bindParam(':adresse', $adresse);
   $query_insert->execute();
 }
 
-// Récupération des données : listes des auteurs
-$sql = 'SELECT * FROM auteurs';
+// Récupération des données : listes des éditeurs
+$sql = 'SELECT * FROM editeurs';
 $query = $pdo->prepare($sql);
 $query->execute();
-$tableau_auteurs = $query->fetchAll(PDO::FETCH_ASSOC);
+$tableau_editeurs = $query->fetchAll(PDO::FETCH_ASSOC);
 
 // Lancement du moteur Twig avec les données
-echo $twig->render('liste_auteurs.twig', [
-  'tableau_auteurs' => $tableau_auteurs
+echo $twig->render('liste_editeurs.twig', [
+  'tableau_editeurs' => $tableau_editeurs
 ]);
