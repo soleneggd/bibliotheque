@@ -13,24 +13,22 @@ include('include/config.php');
 $pdo = new PDO('mysql:host=' . SERVER . ';dbname=' . BDD . ';charset=utf8', USER, PASSWORD);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-// Récupération des données : l'auteur dont l'id est sur l'URL
-$sql = 'SELECT * FROM auteurs WHERE id=:id';
+// Récupération des données : l'éditeur dont l'id est sur l'URL
+$sql = 'SELECT * FROM editeurs WHERE id=:id';
 $query = $pdo->prepare($sql);
 $query->bindValue(':id', $id, PDO::PARAM_INT);
 $query->execute();
-$auteur_unique = $query->fetch(PDO::FETCH_ASSOC);
+$editeur_unique = $query->fetch(PDO::FETCH_ASSOC);
 
-// Récupération des données : les livres de l'auteur dont l'id est sur l'URL
-$sql = 'SELECT livres.isbn, livres.titre FROM
-livres JOIN livres_auteurs ON livres.isbn = livres_auteurs.livre_isbn
-WHERE livres_auteurs.auteur_id = :id';
+// Récupération des données : les livres de l'éditeur dont l'id est sur l'URL
+$sql = 'SELECT * FROM livres WHERE id_editeur=:id';
 $query = $pdo->prepare($sql);
 $query->bindValue(':id', $id, PDO::PARAM_INT);
 $query->execute();
-$livres_auteur = $query->fetchAll(PDO::FETCH_ASSOC);
+$livres_editeur = $query->fetchAll(PDO::FETCH_ASSOC);
 
 // Lancement du moteur Twig avec les données
-echo $twig->render('detail_auteur.twig', [
-  'auteur' => $auteur_unique,
-  'livres' => $livres_auteur
+echo $twig->render('detail_editeur.twig', [
+  'editeur' => $editeur_unique,
+  'livres' => $livres_editeur
 ]);

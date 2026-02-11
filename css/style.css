@@ -23,13 +23,17 @@ header,
 footer {
   width: 100%;
   background-color: white;
-  padding: 20px 52px;
+  padding: 20px 120px;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 main {
   min-height: 400px;
+
+  p {
+    margin-bottom: 10px;
+  }
 }
 
 nav ul {
@@ -72,19 +76,60 @@ h2 {
   color: #333;
 }
 
+h3 {
+  margin: 20px 0 10px;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #444;
+}
+
 .auteur {
   margin-bottom: 10px;
-  font-size: 1.2em;
   font-weight: 400;
+}
 
-  a {
+.list {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auteur a,
+.list a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2em;
+
+  &:hover {
+    color: #5b15c4;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    width: 31%;
+    padding: 20px;
     text-decoration: none;
     color: #000;
 
     &:hover {
-      color: #5b15c4;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
   }
+}
+
+.resume {
+  margin-bottom: 16px;
+  color: #555;
+  line-height: 1.5;
 }
 
 .backlink {

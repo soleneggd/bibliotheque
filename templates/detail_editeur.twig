@@ -1,12 +1,15 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-	<h1>Détail d'un auteur</h1>
+	<h1>Détail d'un éditeur</h1>
 	<h2>
-		{{ auteur.prenom }}
-		{{ auteur.nom }}
+		{{ editeur.nom }}
 	</h2>
-	<h3>Livres de cet auteur :
+	<p>Adresse :
+		{{ editeur.adresse }}</p>
+
+	<div></div>
+	<h3>Livres de cet éditeur :
 	</h3>
 	{% if livres|length == 0 %}
 		<p>Aucun</p>
@@ -20,6 +23,6 @@
 		</div>
 	{% endif %}
 	<p class="backlink">
-		<a href="liste_auteurs.php">Retour</a>
+		<a href="liste_editeurs.php">Retour</a>
 	</p>
 {% endblock %}

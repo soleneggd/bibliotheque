@@ -1,0 +1,14 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Liste des éditeurs</h1>
+	<ul class="list">
+		{% for editeur in tableau_editeurs %}
+			<li>
+				<a href="detail_editeur.php?id={{ editeur.id }}">
+					{{ editeur.nom }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
