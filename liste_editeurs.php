@@ -18,8 +18,8 @@ $adresse = htmlspecialchars(strip_tags($_POST['adresse'] ?? ''));
 if (!empty($nom) && !empty($adresse)) {
   $sql_insert = 'INSERT INTO editeurs (nom, adresse) VALUES (:nom, :adresse)';
   $query_insert = $pdo->prepare($sql_insert);
-  $query_insert->bindParam(':nom', $nom);
-  $query_insert->bindParam(':adresse', $adresse);
+  $query_insert->bindValue(':nom', $nom);
+  $query_insert->bindValue(':adresse', $adresse);
   $query_insert->execute();
 }
 
