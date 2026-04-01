@@ -18,8 +18,8 @@ $prenom = htmlspecialchars(strip_tags($_POST['prenom'] ?? ''));
 if (!empty($nom) && !empty($prenom)) {
   $sql_insert = 'INSERT INTO auteurs (nom, prenom) VALUES (:nom, :prenom)';
   $query_insert = $pdo->prepare($sql_insert);
-  $query_insert->bindParam(':nom', $nom);
-  $query_insert->bindParam(':prenom', $prenom);
+  $query_insert->bindValue(':nom', $nom);
+  $query_insert->bindValue(':prenom', $prenom);
   $query_insert->execute();
 }
 

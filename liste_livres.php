@@ -21,11 +21,11 @@ $editeur = htmlspecialchars(strip_tags($_POST['editeur'] ?? ''));
 if (!empty($isbn) && !empty($titre)) {
   $sql_insert = 'INSERT INTO livres (isbn, titre, resume, prix, id_editeur) VALUES (:isbn, :titre, :resume, :prix, :editeur)';
   $query_insert = $pdo->prepare($sql_insert);
-  $query_insert->bindParam(':isbn', $isbn);
-  $query_insert->bindParam(':titre', $titre);
-  $query_insert->bindParam(':resume', $resume);
-  $query_insert->bindParam(':prix', $prix);
-  $query_insert->bindParam(':editeur', $editeur);
+  $query_insert->bindValue(':isbn', $isbn);
+  $query_insert->bindValue(':titre', $titre);
+  $query_insert->bindValue(':resume', $resume);
+  $query_insert->bindValue(':prix', $prix);
+  $query_insert->bindValue(':editeur', $editeur);
   $query_insert->execute();
 }
 
